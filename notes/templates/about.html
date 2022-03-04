@@ -1,0 +1,28 @@
+{% extends 'base.html'  %}
+{% load static %}
+{% block content %}
+<style>
+img{
+max-width:100%;
+height:auto;
+background-repeat:no-repeat;
+background-position:center;
+background-size:100% 100%;
+}
+</style>
+
+
+<div style="background-color:green; width=100%; height:100px;">
+    <h2 class="text-white container pt-3 ">About Us</h2>
+</div>
+<div >
+    <img src="{% static 'images\about.jpg'  %}" >
+    <hr>
+    <h4>About Us</h4>
+    <p>Hallo Friends........<br>
+        This is a Simple Study Notes Sharing Site Developed By Mahender
+    </p>
+
+</div>
+
+{% endblock %}

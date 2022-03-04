@@ -1,0 +1,71 @@
+{% extends "usernavigation.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="text-center">EDIT PROFILE</h2>
+    <hr>
+    <div class="row">
+            <div class="col-md-6">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class = "form-row">
+                        <div class="form-group col-md-6">
+                            <label>FIRST NAME:</label>
+                            <input type="text" value="{{data.user.first_name}} " class="form-control" name="firstname" >
+
+                        </div>
+                         <div class="form-group col-md-6">
+                            <label>LAST NAME:</label>
+                            <input type="text" value="{{data.user.last_name}} " class="form-control" name="lastname">
+
+                        </div>
+
+                    </div>
+                    <div class = "form-row">
+                        <div class="form-group col-md-12">
+                            <label>EMAIL ID:</label>
+                            <input type="text" value="{{data.user.username}} " class="form-control" name="email" readonly>
+
+                        </div>
+                    </div>
+
+                    <div class = "form-row">
+                        <div class="form-group col-md-12">
+                            <label>CONTACT NUMBER:</label>
+                            <input type="text" value="{{data.contact}} " class="form-control" name="contact" >
+
+                        </div>
+                    </div>
+                    <div class = "form-row">
+                        <div class="form-group col-md-6">
+                            <label>BRANCH :</label>
+                            <select class="form-control" name="branch">
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Computer Application">Computer Application</option>
+                                <option value="Civi">Civil</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Mechanical">Mechanical</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>BRANCH :</label>
+                            <input type="text" value="{{data.branch}}" class="form-control">
+                        </div>
+                    </div>
+                    <input type="submit" value="update" class="btn btn-primary mt-5">
+                </form>
+            </div>
+
+     </div>
+</div>
+
+{% if error %}
+<script>
+    alert("update successfully")
+    window.location = "{% url 'profile' %}"
+</script>
+{% endif %}
+
+{% endblock %}

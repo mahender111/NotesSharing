@@ -1,0 +1,49 @@
+{% extends "admin_nav.html" %}
+{% load static %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css">
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+<div class="container mt-5">
+    <h2 class="text-center">VIEW USERS</h2>
+
+   <table class="table table-bordered" id="example">
+       <thead>
+       <tr>
+           <th> Sr.No</th>
+           <th>FULL NAME</th>
+           <th>EMAIL ID</th>
+           <th>CONTACT NUMBER</th>
+           <th>BRANCH</th>
+           <th>ROLE</th>
+           <th>Action</th>
+       </tr>
+       </thead>
+       {% for i in user %}
+       <tbody>
+       <tr>
+           <td>{{forloop.counter}}</td>
+           <td style= "text-transform:capitalize">{{i.user.first_name}} {{i.user.last_name}}</td>
+           <td>{{i.user.username}}</td>
+           <td>{{i.contact }}</td>
+           <td>{{i.branch }}</td>
+           <td>{{i.role}}</td>
+           <td><a href="{% url 'delete_user' i.id %}"class="btn btn-danger" onclick="return confirm("are you sure delete data ?")">DELETE</a></td>
+       </tr>
+       {% endfor %}
+
+        </tbody>
+   </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'admin_nav.html'  %}
+{% load static %}
+{% block content %}
+<style>
+    .container1{
+    background-color:lightgrey;
+    border-radius : 8px;
+    }
+h2,h4{
+padding:10px;
+
+}
+.mydiv:hover{
+transform:translateY(-10px)
+}
+
+
+.glow{
+font-size:88px;
+color:#fff;
+text-align:center;
+-webkit-animation:glow is ease-in-out infinite alternate;
+
+}
+@-webkit-keyframes glow{
+from{
+text-shadow:0 0 10px #fff,0 0 20px #fff,0 0 30px #e60073, 0 0 40px #e60073,0 0 50px #e60073,
+0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073,00 70px #e60073;
+
+}
+to{
+text-shadow:0 0 10px #fff,0 0 20px #fff,0 0 30px #ff4da6 0 0 40px #ff4da6,0 0 50px #ff4da6,
+0 0 50px #ff4da6,  0 0 60px #ff4da6,00 70px #ff4da6;0 0 80px #ff4da6;
+
+}
+}
+
+</style>
+<div class="container mt-5">
+    <div class="row ">
+        <div class="col-sm-3 text-center mydiv ">
+            <div class="container1 ">
+                <h2 class="text-primary">{{p}}</h2>
+                <a href="{% url 'pending' %}"><h4 class="text-dark">PENDING NOTES</h4></a>
+            </div>
+        </div>
+          <div class="col-sm-3 text-center mydiv ">
+            <div class="container1 ">
+                <h2 class="text-primary">{{a}}</h2>
+                <a href="{% url 'accepted_notes' %}"><h4 class="text-dark">ACCEPT NOTES</h4></a>
+            </div>
+        </div>
+          <div class="col-sm-3 text-center mydiv ">
+            <div class="container1 ">
+                <h2 class="text-primary">{{r}}</h2>
+                <a href="{% url "rejected" %}"><h4 class="text-dark">REJECT NOTES</h4></a>
+            </div>
+        </div>
+          <div class="col-sm-3 text-center mydiv ">
+            <div class="container1 ">
+                <h2 class="text-primary">{{allc}}</h2>
+                <a href="{% url "all_notes" %}"><h4 class="text-dark">ALL NOTES</h4></a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="container mt-5 text-center">
+    <p style="font-size:30px; color:red; font-weight: bold "> Copyright &copy; <script>document.write(new date().getFullYear());</script>All Right Reserver <span style="color:blue">|</span><span style="color :#0086400"><br>This website is made with <br><i class="fas fa-heart icon-heart text-warning "> by </i></span><a class="glow" href="#" target="_blank"> Mahender Singh Kamboj</a></p>
+
+
+</footer>
+
+{% endblock %}

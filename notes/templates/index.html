@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+.image{
+max-width:100%;
+height:1000px;
+background:url({% static 'images\notes.jpg' %});
+background-repeat:no-repeat;
+background-position:center;
+background-size:100% 100%;
+
+}
+
+</style>
+
+<div class="image">
+    <div class="transparentbox">
+        <p>Study Notes Sharing Style</p>
+    </div>
+</div>
+<h4 class="text-center text-darger mt-5 mb-5">Just 4 Step To Follow</h4>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="text-center fas fa-user-circle text-white mt-4" style="font-size:40px"></i> </p>
+                <p class="halfcircleBottom" style="font-size:20px">Create Account</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="text-center fas fa-sign-in-alt text-white mt-4" style="font-size:40px"></i> </p>
+                <p class="halfcircleBottom" style="font-size:20px">Login</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="text-center fas fa-upload text-white mt-4" style="font-size:40px"></i> </p>
+                <p class="halfcircleBottom" style="font-size:20px">Upload Notes</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="box1">
+                <p class="halfcircle"><i class="text-center fas fa-download text-white mt-4" style="font-size:40px"></i> </p>
+                <p class="halfcircleBottom" style="font-size:20px">Download Notes</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

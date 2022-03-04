@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="{% url 'admin_home' %}">Sharing NOTES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin_home' %}">HOME</a>
+            </li>
+             <li class="nav-item" dropdown>
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">VIEW NOTES</a>
+                 <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url "pending" %}">PENDING </a>
+                    <a class="dropdown-item" href="{% url "accepted_notes" %}">ACCEPTED </a>
+                    <a class="dropdown-item" href="{% url "rejected" %}">REJECTED </a>
+                    <a class="dropdown-item" href="{% url "all_notes" %}">ALL NOTES </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_user' %}">VIEW USERS</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout'%}">LOGOUT</a>
+            </li>
+    </ul>
+  </div>
+</nav>
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends "usernavigation.html" %}
+{% load static %}
+{% block content %}
+
+
+
+{% if error == "no" %}
+<script>
+    alert(' signup successfully');
+    window.location=({% url 'logout' %});
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('invalid login Credentials,try again');
+
+</script>
+{% endif %}
+
+
+<h2> Password Rest</h2>
+<HR>
+
+
+
+<div class="container mt-5" style="background-color : whitesmoke">
+<div class="row">
+    <div class="col-sm-6">
+
+        <img src="{% static 'images\changepwd.jpg' %}" class="img-thumbnail my-2"  style="width:100%; height:270px;">
+    </div>
+    <div class="col-sm-6">
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <h2 CLASS="text-center">USER LOGIN</h2>
+            <HR>
+            {% csrf_token %}
+            <label for="password">OLD PASSWORD:</label>
+            <input type="password" class="form-control" placeholder="OLD PASSWORD" name="old">
+            <label for="password">NEW Password</label>
+            <input type="password"  class="form-control" placeholder="NEW PASSWORD" name="new">
+            <label for="password">CONFIRM Password</label>
+            <input type="password"  class="form-control" placeholder="CONFIRM PASSWORD" name="confirm">
+            <input type="submit" class="btn btn-danger mt-2" value="SUBMIT">
+        </form>
+    </div>
+</div>
+
+</div>
+
+
+{% endblock %}
